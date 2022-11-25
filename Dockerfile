@@ -9,13 +9,15 @@ LABEL org.opencontainers.image.source https://github.com/cmahnke/font-action
 
 ARG GIT_TAG=""
 
-ENV BUILD_DEPS="cmake  g++ clang-dev make libc-dev libstdc++ binutils harfbuzz pkgconfig py3-pip libimagequant-dev python3-dev rust cargo" \
-    RUN_DEPS="busybox git libgcc cairo freetype libffi libimagequant py3-gitpython py3-numpy py3-cairo py3-cffsubr py3-yaml py3-pygments py3-pygit2 py3-cffi py3-zopfli py3-pillow py3-brotli py3-wheel py3-beautifulsoup4 py3-certifi py3-urllib3 py3-lxml py3-ufolib2 py3-skia-pathops py3-psutil py3-compreffor py3-simplejson py3-defcon py3-fontmath py3-rich py3-wrapt py3-commonmark py3-unidecode py3-jinja2 py3-requests py3-regex py3-statmake py3-protobuf py3-tabulate py3-toml py3-dateutil py3-colorlog py3-click py3-cu2qu py3-jwt py3-cattrs py3-rstr py3-bump2version py3-deprecated py3-maturin" \
+ENV BUILD_DEPS="cmake  g++ clang-dev make libc-dev libstdc++ binutils harfbuzz pkgconfig py3-pip libimagequant-dev  python3-dev rust cargo" \
+    RUN_DEPS="busybox git libgcc cairo freetype libimagequant pngquant py3-gitpython py3-numpy py3-cairo py3-cffsubr py3-yaml py3-pygments py3-pygit2 py3-cffi py3-zopfli py3-pillow py3-brotli py3-wheel py3-beautifulsoup4 py3-certifi py3-urllib3 py3-lxml py3-ufolib2 py3-skia-pathops py3-psutil py3-compreffor py3-simplejson py3-defcon py3-fontmath py3-rich py3-wrapt py3-commonmark py3-unidecode py3-jinja2 py3-requests py3-regex py3-statmake py3-protobuf py3-tabulate py3-toml py3-dateutil py3-colorlog py3-click py3-cu2qu py3-jwt py3-cattrs py3-rstr py3-bump2version py3-deprecated py3-maturin" \
     BUILD_DIR=/tmp/build \
+    BUILD_CONTEXT=/mnt/build-context \
     WOFF2_GIT_URL="https://github.com/google/woff2.git" \
     DEFAULT_GIT_TAG="v1.0.2"
 
-RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
+RUN --mount=target=/mnt/build-context \
+    echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
     apk --update upgrade && \
     apk add --no-cache $RUN_DEPS $BUILD_DEPS && \
     mkdir -p $BUILD_DIR && \
@@ -28,8 +30,10 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/reposit
     cd woff2 && \
     make clean all && \
     mv woff2_compress woff2_decompress woff2_info /usr/local/bin && \
-    pip3 install pngquant_cli --force-reinstall --ignore-installed --no-binary pngquant_cli && \
-    pip3 install 'gftools[qa]' && \
+    cd .. && \
+    pip3 install -r $BUILD_CONTEXT/requirements.txt && \
+    #pip3 install pngquant pngquant_cli --force-reinstall --ignore-installed --no-binary pngquant_cli && \
+    pip3 install --no-deps 'gftools[qa]' && \
 
 # Cleanup
     cd / && \
