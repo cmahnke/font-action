@@ -10,7 +10,7 @@ LABEL org.opencontainers.image.source https://github.com/cmahnke/font-action
 ARG GIT_TAG=""
 
 ENV BUILD_DEPS="cmake git g++ clang-dev make libc-dev libgcc binutils harfbuzz pkgconfig py3-pip python3-dev libffi-dev rust cargo" \
-    RUN_DEPS="busybox libstdc++ cairo freetype libffi py3-gitpython py3-numpy py3-cairo py3-cffsubr py3-yaml py3-pygments py3-pygit2 py3-cffi py3-zopfli py3-pillow py3-brotli py3-wheel" \
+    RUN_DEPS="busybox libstdc++ cairo freetype libffi py3-gitpython py3-numpy py3-cairo py3-cffsubr py3-yaml py3-pygments py3-pygit2 py3-cffi py3-zopfli py3-pillow py3-brotli py3-wheel py3-beautifulsoup4 py3-certifi py3-urllib3 py3-lxml py3-ufolib2 py3-skia-pathops py3-psutil py3-compreffor" \
     BUILD_DIR=/tmp/build \
     WOFF2_GIT_URL="https://github.com/google/woff2.git" \
     DEFAULT_GIT_TAG="v1.0.2"
