@@ -10,7 +10,7 @@ LABEL org.opencontainers.image.source https://github.com/cmahnke/font-action
 ARG GIT_TAG=""
 
 ENV BUILD_DEPS="cmake git g++ clang-dev make libc-dev libgcc binutils harfbuzz pkgconfig py3-pip libimagequant-dev python3-dev rust cargo" \
-    RUN_DEPS="busybox libstdc++ cairo freetype libffi libimagequant py3-gitpython py3-numpy py3-cairo py3-cffsubr py3-yaml py3-pygments py3-pygit2 py3-cffi py3-zopfli py3-pillow py3-brotli py3-wheel py3-beautifulsoup4 py3-certifi py3-urllib3 py3-lxml py3-ufolib2 py3-skia-pathops py3-psutil py3-compreffor py3-simplejson py3-defcon py3-fontmath py3-rich py3-wrapt py3-commonmark py3-unidecode py3-jinja2 py3-requests py3-regex py3-statmake py3-protobuf py3-tabulate py3-maturin" \
+    RUN_DEPS="busybox libstdc++ cairo freetype libffi libimagequant py3-gitpython py3-numpy py3-cairo py3-cffsubr py3-yaml py3-pygments py3-pygit2 py3-cffi py3-zopfli py3-pillow py3-brotli py3-wheel py3-beautifulsoup4 py3-certifi py3-urllib3 py3-lxml py3-ufolib2 py3-skia-pathops py3-psutil py3-compreffor py3-simplejson py3-defcon py3-fontmath py3-rich py3-wrapt py3-commonmark py3-unidecode py3-jinja2 py3-requests py3-regex py3-statmake py3-protobuf py3-tabulate py3-toml py3-dateutil py3-colorlog py3-click py3-cu2qu py3-jwt py3-cattrs py3-maturin" \
     BUILD_DIR=/tmp/build \
     WOFF2_GIT_URL="https://github.com/google/woff2.git" \
     DEFAULT_GIT_TAG="v1.0.2"
