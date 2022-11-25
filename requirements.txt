@@ -34,7 +34,6 @@ fontmake
 fonttools
 fs
 gflanguages
-gftools
 glyphsLib
 glyphsets
 glyphtools
