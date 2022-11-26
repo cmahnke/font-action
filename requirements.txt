@@ -47,7 +47,6 @@ openstep-plist
 opentype-sanitizer
 orjson
 picosvg
-pngquant-cli
 protobuf
 psutil
 pybrowserstack-screenshots
