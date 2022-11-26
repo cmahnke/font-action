@@ -47,6 +47,7 @@ openstep-plist
 opentype-sanitizer
 orjson
 picosvg
+#pngquant-cli
 protobuf
 psutil
 pybrowserstack-screenshots
@@ -57,7 +58,7 @@ pyparsing
 python-dateutil
 regex
 requests
-resvg-cli
+#resvg-cli
 simplejson
 six
 skia-pathops
