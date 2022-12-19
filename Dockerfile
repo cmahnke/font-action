@@ -14,7 +14,8 @@ ENV BUILD_DEPS="cmake g++ clang-dev make libc-dev binutils harfbuzz pkgconfig py
     BUILD_DIR=/tmp/build \
     BUILD_CONTEXT=/mnt/build-context \
     WOFF2_GIT_URL="https://github.com/google/woff2.git" \
-    DEFAULT_GIT_TAG="v1.0.2"
+    DEFAULT_GIT_TAG="v1.0.2" \
+    CARGO_NET_GIT_FETCH_WITH_CLI=true
 
 RUN --mount=target=/mnt/build-context \
     echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
@@ -33,7 +34,7 @@ RUN --mount=target=/mnt/build-context \
     mv woff2_compress woff2_decompress woff2_info /usr/local/bin && \
     cd .. && \
     pip3 install --no-deps -r $BUILD_CONTEXT/requirements.txt && \
-    #pip3 install pngquant pngquant_cli --force-reinstall --ignore-installed --no-binary pngquant_cli && \
+    pip3 install pngquant pngquant_cli --force-reinstall --ignore-installed --no-binary pngquant_cli && \
     pip3 install --no-deps 'gftools[qa]' && \
 
 # Cleanup
