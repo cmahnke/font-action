@@ -33,7 +33,7 @@ RUN --mount=target=/mnt/build-context \
     make clean all && \
     mv woff2_compress woff2_decompress woff2_info /usr/local/bin && \
     cd .. && \
-    pip3 install 'gftools[qa]'
+    pip3 install 'gftools[qa]' && \
 #    pip3 install --no-deps -r $BUILD_CONTEXT/requirements.txt && \
 #    pip3 install pngquant pngquant_cli --force-reinstall --ignore-installed --no-binary pngquant_cli && \
 #    pip3 install --no-deps 'gftools[qa]' && \
