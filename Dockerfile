@@ -10,9 +10,9 @@ LABEL org.opencontainers.image.source https://github.com/cmahnke/font-action
 ARG GIT_TAG=""
 
 ENV BUILD_DEPS="cmake g++ clang-dev make libc-dev binutils harfbuzz pkgconfig py3-pip py3-maturin maturin libimagequant-dev python3-dev rust cargo zlib-dev libffi-dev" \
-    RUN_DEPS="busybox git libgcc libstdc++ cairo freetype libimagequant pngquant zlib libffi py3-gitpython py3-numpy py3-cairo py3-cffsubr py3-yaml py3-pygments py3-pygit2 py3-cffi py3-zopfli py3-pillow py3-brotli py3-wheel py3-beautifulsoup4 py3-certifi py3-urllib3 py3-lxml py3-ufolib2 py3-skia-pathops py3-psutil py3-compreffor py3-simplejson py3-defcon py3-fontmath py3-fontforge py3-fonttools py3-rich py3-wrapt py3-commonmark py3-unidecode py3-jinja2 py3-requests py3-regex py3-protobuf py3-tabulate py3-toml py3-dateutil py3-colorlog py3-cu2qu py3-jwt py3-rstr py3-bump2version py3-deprecated py3-parsing py3-packaging py3-olefile py3-dateutil py3-simplejson py3-six py3-tz py3-cparser py3-click" \
+    RUN_DEPS="busybox git libgcc libstdc++ cairo freetype libimagequant pngquant zlib libffi py3-gitpython py3-numpy py3-cairo py3-cffsubr py3-yaml py3-pygments py3-pygit2 py3-cffi py3-zopfli py3-pillow py3-brotli py3-wheel py3-beautifulsoup4 py3-certifi py3-urllib3 py3-lxml py3-ufolib2 py3-skia-pathops py3-psutil py3-compreffor py3-simplejson py3-defcon py3-fontmath py3-fontforge py3-fonttools py3-rich py3-wrapt py3-commonmark py3-unidecode py3-jinja2 py3-requests py3-regex py3-protobuf py3-tabulate py3-toml py3-dateutil py3-colorlog py3-cu2qu py3-jwt py3-deprecated py3-parsing py3-packaging py3-olefile py3-dateutil py3-simplejson py3-six py3-tz py3-cparser py3-click" \
 # Ommited, since these are problematic during dependency resolution
-# py3-cattrs py3-statmake
+# py3-cattrs py3-statmake py3-rstr py3-bump2version
     BUILD_DIR=/tmp/build \
     BUILD_CONTEXT=/mnt/build-context \
     WOFF2_GIT_URL="https://github.com/google/woff2.git" \
