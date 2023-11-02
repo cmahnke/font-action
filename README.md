@@ -4,10 +4,13 @@
 
 
 ### New variant
+**This is't working yet** 
 
 ```
 docker run  pip freeze gftools > requirements.txt
 ```
+Piping maight reduce number of variants
+` | sed 's/==/<=/g' `
 
 ### Old variant
 
