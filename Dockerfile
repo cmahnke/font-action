@@ -25,7 +25,7 @@ RUN --mount=target=/mnt/build-context \
     #echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories && \
     apk --update upgrade && \
     apk add --no-cache $RUN_DEPS $BUILD_DEPS && \
-    mkdir -p $BUILD_DIR && \
+    mkdir -p $BUILD_DIR ~/.config/pip/ && \
     printf "\n[global]\nbreak-system-packages = true" >> ~/.config/pip/pip.conf && \
     cd $BUILD_DIR && \
     if [ -z "$GIT_TAG" ] ; then \
