@@ -26,6 +26,7 @@ RUN --mount=target=/mnt/build-context \
     apk --update upgrade && \
     apk add --no-cache $RUN_DEPS $BUILD_DEPS && \
     mkdir -p $BUILD_DIR && \
+    printf "\n[global]\nbreak-system-packages = true" >> ~/.config/pip/pip.conf && \
     cd $BUILD_DIR && \
     if [ -z "$GIT_TAG" ] ; then \
         GIT_TAG=$DEFAULT_GIT_TAG ; \
