@@ -8,9 +8,7 @@ LABEL org.opencontainers.image.source https://github.com/cmahnke/font-action
 ARG GIT_TAG=""
 
 ENV BUILD_DEPS="cmake g++ clang-dev make" \
-#libc-dev util-linux-dev libxml2-dev binutils harfbuzz pkgconfig zlib-dev libffi-dev libgit2-dev
     RUN_DEPS="busybox git libgcc libstdc++" \
-#libuuid cairo freetype libxml2 libimagequant pngquant zlib libffi
     BUILD_DIR=/tmp/build \
     BUILD_CONTEXT=/mnt/build-context \
     WOFF2_GIT_URL="https://github.com/google/woff2.git" \
