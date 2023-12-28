@@ -21,3 +21,7 @@ updates:
       interval: "daily"
     ignore:
       - dependency-name: "maven"
+  - package-ecosystem: "docker"
+    directory: "/docker/woff2/"
+    schedule:
+      interval: "daily"
