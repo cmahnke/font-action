@@ -73,7 +73,7 @@ jobs:
             ghcr.io/cmahnke/font-action/hiero:latest
 
   push_woff2_to_registry:
-    name: Push Hiero Docker image to GitHub Packages
+    name: Push Woff2 Docker image to GitHub Packages
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
