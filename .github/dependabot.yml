@@ -5,23 +5,43 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+    groups:
+      github-actions:
+        patterns:
+        - '*'
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
       interval: "daily"
+    groups:
+      npm:
+        patterns:
+        - '*'
   - package-ecosystem: "docker"
     directory: "/"
     schedule:
       interval: "daily"
     ignore:
       - dependency-name: "alpine"
+    groups:
+      docker:
+        patterns:
+        - '*'
   - package-ecosystem: "docker"
     directory: "/docker/hiero/"
     schedule:
       interval: "daily"
     ignore:
       - dependency-name: "maven"
+    groups:
+      docker:
+        patterns:
+        - '*'
   - package-ecosystem: "docker"
     directory: "/docker/woff2/"
     schedule:
       interval: "daily"
+    groups:
+      docker:
+        patterns:
+        - '*'
