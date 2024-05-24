@@ -35,7 +35,7 @@ RUN mkdir -p $BUILD_DIR $LIBGDX_DIR $ANDROID_HOME && \
     ./gradlew --no-watch-fs clean distHiero --info -x test && \
     cp extensions/gdx-tools/build/libs/runnable-hiero.jar $LIBGDX_DIR/
 
-FROM alpine:3.20
+FROM alpine:3.19
 
 LABEL maintainer="cmahnke@gmail.com"
 LABEL org.opencontainers.image.source https://github.com/cmahnke/font-action
