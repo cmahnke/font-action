@@ -3,8 +3,16 @@
 
 # Building
 
+## Hiero
+
 ```
 docker build -f docker/hiero/Dockerfile .
+```
+
+## GFTools
+
+```
+docker build -f docker/gftools/Dockerfile .
 ```
 
 # Generate dependencies list
