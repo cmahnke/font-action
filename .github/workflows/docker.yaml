@@ -12,7 +12,7 @@ concurrency:
 
 jobs:
 
-  push_gfttools_to_registry:
+  push_gftools_to_registry:
     name: Push Docker image to GitHub Packages
     runs-on: ubuntu-latest
     steps:
@@ -37,7 +37,7 @@ jobs:
         with:
           push: true
           context: .
-          file: Dockerfile
+          file: docker/gftools/Dockerfile
           platforms: linux/amd64,linux/arm64
           tags: |
             ghcr.io/cmahnke/font-action:latest

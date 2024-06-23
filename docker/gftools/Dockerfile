@@ -4,7 +4,7 @@ FROM alpine:3.18
 
 LABEL maintainer="cmahnke@gmail.com"
 LABEL "com.github.actions.name"="GitHub Actions font conversion"
-LABEL "com.github.actions.description"="This is a simple GitHub Action to convert Font from and to variuos formats"
+LABEL "com.github.actions.description"="This is a simple GitHub Action to convert Font from and to various formats"
 LABEL org.opencontainers.image.source https://github.com/cmahnke/font-action
 
 ARG GIT_TAG="" \
