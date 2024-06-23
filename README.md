@@ -1,10 +1,17 @@
-# font-action
+`font-action`
+=============
 
-## Generate dependencies list
+# Building
+
+```
+docker build -f docker/hiero/Dockerfile .
+```
+
+# Generate dependencies list
 
 
-### New variant
-**This is't working yet** 
+## New variant
+**This is't working yet**
 
 ```
 docker run  pip freeze gftools > requirements.txt
@@ -12,7 +19,7 @@ docker run  pip freeze gftools > requirements.txt
 Piping maight reduce number of variants
 ` | sed 's/==/<=/g' `
 
-### Old variant
+## Old variant
 
 ```
 pip3 install pipdeptree
