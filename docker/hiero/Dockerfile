@@ -1,15 +1,15 @@
 # syntax=docker/dockerfile:experimental
 
-FROM maven:3-eclipse-temurin-18 AS builder
+FROM maven:3-eclipse-temurin-21 AS builder
 
-ARG LIBGDX_TAG=1.12.1
+ARG LIBGDX_TAG=1.13.5
 ARG ANDROID_SDK_VERSION=10406996
 
 ENV BUILD_DEPS="git wget unzip" \
     BUILD_DIR=/tmp/build \
     LIBGDX_GIT_URL=https://github.com/libgdx/libgdx.git \
     LIBGDX_DIR=/opt/libgdx \
-    GRADLE_VERSION=7.5.1 \
+    GRADLE_VERSION=9.0.0 \
     GRADLE_HOME=/opt/gradle \
     ANDROID_HOME=/opt/android-sdk
 
