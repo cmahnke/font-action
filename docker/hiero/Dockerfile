@@ -9,7 +9,7 @@ ENV BUILD_DEPS="git wget unzip" \
     BUILD_DIR=/tmp/build \
     LIBGDX_GIT_URL=https://github.com/libgdx/libgdx.git \
     LIBGDX_DIR=/opt/libgdx \
-    GRADLE_VERSION=9.0.0 \
+    GRADLE_VERSION=8.14.3 \
     GRADLE_HOME=/opt/gradle \
     ANDROID_HOME=/opt/android-sdk
 
