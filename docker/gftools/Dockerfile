@@ -39,7 +39,8 @@ RUN --mount=target=/mnt/build-context \
     mv woff2_compress woff2_decompress woff2_info /usr/local/bin && \
     cd .. && \
     #/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/googlefonts/gftools/main/bin/install_rust_binaries.sh)" && \
-    pip3 install 'gftools[qa]' ; \
+    pip3 install --upgrade pip setuptools wheel && \
+    pip3 install 'gftools[qa]' && \
 # Cleanup
     cd / && \
     apk del $BUILD_DEPS libjpeg && \
