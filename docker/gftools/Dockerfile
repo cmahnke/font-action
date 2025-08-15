@@ -1,6 +1,7 @@
 # syntax=docker/dockerfile:experimental
 
-FROM alpine:3.21
+#FROM alpine:3.21
+FROM python:3.11-alpine
 
 LABEL maintainer="cmahnke@gmail.com"
 LABEL "com.github.actions.name"="GitHub Actions font conversion"
