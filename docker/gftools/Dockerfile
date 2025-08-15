@@ -8,8 +8,7 @@ LABEL "com.github.actions.name"="GitHub Actions font conversion"
 LABEL "com.github.actions.description"="This is a simple GitHub Action to convert Font from and to various formats"
 LABEL org.opencontainers.image.source https://github.com/cmahnke/font-action
 
-ARG GIT_TAG="" \
-    NO_REQUIREMENTS=true
+ARG GIT_TAG="
 
 ENV BUILD_DEPS="cmake g++ clang-dev make libc-dev util-linux-dev libxml2-dev binutils harfbuzz pkgconfig maturin libimagequant-dev rust cargo zlib-dev libffi-dev libgit2-dev pkgconf-dev" \
     RUN_DEPS="busybox git libgcc libstdc++ libuuid cairo freetype libxml2 libimagequant pngquant zlib libffi pkgconf" \
@@ -40,17 +39,8 @@ RUN --mount=target=/mnt/build-context \
     make clean all && \
     mv woff2_compress woff2_decompress woff2_info /usr/local/bin && \
     cd .. && \
-    cp /mnt/build-context/requirements.txt . && \
-    #pip3 install --upgrade setuptools && \
-    #pip install --upgrade pip && \
-    pip install wheel && \
-    #pip install "pyyaml<=5.4.1" --no-build-isolation && \
-    if [ "$NO_REQUIREMENTS" = 'true' ] ; then \
-      pip3 install 'gftools[qa]' ; \
-    else \
-      pip3 install -r requirements.txt ; \
-    fi && \
-    pip3 install -r requirements.txt && \
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/googlefonts/gftools/main/bin/install_rust_binaries.sh)" && \
+    pip3 install 'gftools[qa]' ; \
 # Cleanup
     cd / && \
     apk del $BUILD_DEPS libjpeg && \
