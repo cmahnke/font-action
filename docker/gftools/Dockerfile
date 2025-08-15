@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:experimental
 
 #FROM alpine:3.21
-FROM python:3.11-alpine
+FROM python:3.10-alpine
 
 LABEL maintainer="cmahnke@gmail.com"
 LABEL "com.github.actions.name"="GitHub Actions font conversion"
@@ -42,7 +42,7 @@ RUN --mount=target=/mnt/build-context \
     cd .. && \
     cp /mnt/build-context/requirements.txt . && \
     #pip3 install --upgrade setuptools && \
-    pip install --upgrade pip && \
+    #pip install --upgrade pip && \
     #pip install "cython<3.0.0" wheel && \
     #pip install "pyyaml<=5.4.1" --no-build-isolation && \
     if [ "$NO_REQUIREMENTS" = 'true' ] ; then \
