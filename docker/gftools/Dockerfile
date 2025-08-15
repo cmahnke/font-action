@@ -8,7 +8,7 @@ LABEL "com.github.actions.name"="GitHub Actions font conversion"
 LABEL "com.github.actions.description"="This is a simple GitHub Action to convert Font from and to various formats"
 LABEL org.opencontainers.image.source https://github.com/cmahnke/font-action
 
-ARG GIT_TAG="
+ARG GIT_TAG=""
 
 ENV BUILD_DEPS="cmake g++ clang-dev make libc-dev util-linux-dev libxml2-dev binutils harfbuzz pkgconfig maturin libimagequant-dev rust cargo zlib-dev libffi-dev libgit2-dev pkgconf-dev" \
     RUN_DEPS="busybox git libgcc libstdc++ libuuid cairo freetype libxml2 libimagequant pngquant zlib libffi pkgconf" \
