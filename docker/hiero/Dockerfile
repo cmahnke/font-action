@@ -3,7 +3,7 @@
 FROM maven:3-eclipse-temurin-21 AS builder
 
 ARG LIBGDX_TAG=1.13.5
-ARG ANDROID_SDK_VERSION=10406996
+ARG ANDROID_SDK_VERSION=12266719
 
 ENV BUILD_DEPS="git wget unzip" \
     BUILD_DIR=/tmp/build \
