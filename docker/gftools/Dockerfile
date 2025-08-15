@@ -39,6 +39,7 @@ RUN --mount=target=/mnt/build-context \
     mv woff2_compress woff2_decompress woff2_info /usr/local/bin && \
     cd .. && \
     cp /mnt/build-context/requirements.txt . && \
+    pip3 install --upgrade setuptools && \
     if [ "$NO_REQUIREMENTS" = 'true' ] ; then \
       pip3 install --use-pep517 'gftools' ; \
     else \
