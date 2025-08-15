@@ -28,7 +28,7 @@ RUN mkdir -p $BUILD_DIR $LIBGDX_DIR $ANDROID_HOME && \
     yes | ./cmdline-tools/bin/sdkmanager --licenses --sdk_root=$ANDROID_HOME && \
 # Install LibGDX
     cd $BUILD_DIR && \
-    git clone --depth 1 $LIBGDX_GIT_URL --branch $LIBGDX_TAG --single-branch libgdx && \
+    git clone $LIBGDX_GIT_URL --branch $LIBGDX_TAG --single-branch libgdx && \
     cd libgdx && \
     chmod +x gradlew && \
     ./gradlew --no-watch-fs fetchNatives --info -x test && \
