@@ -44,7 +44,6 @@ jobs:
           file: docker/gftools/Dockerfile
           platforms: linux/amd64,linux/arm64
           tags: |
-            ghcr.io/cmahnke/font-action:latest
             ghcr.io/cmahnke/font-action/gftools:latest
 
   push_hiero_to_registry:
