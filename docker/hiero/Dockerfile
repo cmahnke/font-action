@@ -31,8 +31,8 @@ RUN mkdir -p $BUILD_DIR $LIBGDX_DIR $ANDROID_HOME && \
     git clone $LIBGDX_GIT_URL --branch $LIBGDX_TAG --single-branch libgdx && \
     cd libgdx && \
     chmod +x gradlew && \
-    ./gradlew --no-watch-fs fetchNatives --info -x test && \
-    ./gradlew --no-watch-fs clean distHiero --info -x test && \
+    ./gradlew --no-watch-fs fetchNatives --info -x test -x spotlessJava && \
+    ./gradlew --no-watch-fs clean distHiero --info -x test -x spotlessJava && \
     cp extensions/gdx-tools/build/libs/runnable-hiero.jar $LIBGDX_DIR/
 
 FROM alpine:3.22
