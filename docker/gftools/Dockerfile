@@ -43,7 +43,7 @@ RUN --mount=target=/mnt/build-context \
     cp /mnt/build-context/requirements.txt . && \
     #pip3 install --upgrade setuptools && \
     #pip install --upgrade pip && \
-    #pip install "cython<3.0.0" wheel && \
+    pip install wheel && \
     #pip install "pyyaml<=5.4.1" --no-build-isolation && \
     if [ "$NO_REQUIREMENTS" = 'true' ] ; then \
       pip3 install 'gftools[qa]' ; \
