@@ -38,7 +38,7 @@ RUN --mount=target=/mnt/build-context \
     make clean all && \
     mv woff2_compress woff2_decompress woff2_info /usr/local/bin && \
     cd .. && \
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/googlefonts/gftools/main/bin/install_rust_binaries.sh)" && \
+    #/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/googlefonts/gftools/main/bin/install_rust_binaries.sh)" && \
     pip3 install 'gftools[qa]' ; \
 # Cleanup
     cd / && \
