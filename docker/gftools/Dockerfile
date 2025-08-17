@@ -9,7 +9,7 @@ LABEL org.opencontainers.image.source https://github.com/cmahnke/font-action
 
 ARG GIT_TAG=""
 
-ENV BUILD_DEPS="cmake g++ clang-dev make libc-dev util-linux-dev libxml2-dev binutils harfbuzz pkgconfig maturin libimagequant-dev rust cargo zlib-dev libffi-dev libgit2-dev pkgconf-dev cairo-dev" \
+ENV BUILD_DEPS="g++ clang-dev make libc-dev util-linux-dev libxml2-dev binutils harfbuzz pkgconfig maturin libimagequant-dev rust cargo zlib-dev libffi-dev libgit2-dev pkgconf-dev cairo-dev" \
     RUN_DEPS="busybox git libgcc libstdc++ libuuid cairo freetype libxml2 libimagequant pngquant zlib libffi pkgconf bash curl cairo" \
     BUILD_DIR=/tmp/build \
     BUILD_CONTEXT=/mnt/build-context \
@@ -23,6 +23,7 @@ RUN --mount=target=/mnt/build-context \
     #echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories && \
     apk --update upgrade && \
     apk add --no-cache $RUN_DEPS $BUILD_DEPS && \
+    apk add --no-cache --repository=http://dl-cdn.alpinelinux.org/alpine/v3.17/main cmake=3.17.5-r1 && \
     mkdir -p $BUILD_DIR ~/.config/pip/ && \
     printf "\n[global]\nbreak-system-packages = true" >> ~/.config/pip/pip.conf && \
     cd $BUILD_DIR && \
