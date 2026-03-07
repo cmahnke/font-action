@@ -12,7 +12,7 @@ ENV BUILD_DEPS="cmake g++ clang-dev make" \
     BUILD_DIR=/tmp/build \
     BUILD_CONTEXT=/mnt/build-context \
     WOFF2_GIT_URL="https://github.com/google/woff2.git" \
-    DEFAULT_GIT_TAG="v1.0.2" \
+    DEFAULT_GIT_TAG="master" \
     CARGO_NET_GIT_FETCH_WITH_CLI=true
 
 RUN --mount=target=/mnt/build-context \
