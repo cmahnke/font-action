@@ -1,6 +1,4 @@
-# syntax=docker/dockerfile:experimental
-
-FROM python:3.11-alpine
+FROM python:3.13-alpine3.24
 
 LABEL maintainer="cmahnke@gmail.com"
 LABEL "com.github.actions.name"="GitHub Actions font conversion"
@@ -9,21 +7,20 @@ LABEL org.opencontainers.image.source https://github.com/cmahnke/font-action
 
 ARG GIT_TAG=""
 
-ENV BUILD_DEPS="g++ clang-dev make libc-dev util-linux-dev libxml2-dev binutils harfbuzz pkgconfig maturin libimagequant-dev rust cargo zlib-dev libffi-dev libgit2-dev pkgconf-dev cairo-dev" \
+ENV BUILD_DEPS="g++ clang-dev make libc-dev util-linux-dev libxml2-dev binutils harfbuzz pkgconfig maturin libimagequant-dev rust cargo zlib-dev libffi-dev libgit2-dev pkgconf-dev cairo-dev cmake" \
     RUN_DEPS="busybox git libgcc libstdc++ libuuid cairo freetype libxml2 libimagequant pngquant zlib libffi pkgconf bash curl cairo" \
     BUILD_DIR=/tmp/build \
     BUILD_CONTEXT=/mnt/build-context \
     WOFF2_GIT_URL="https://github.com/google/woff2.git" \
-    DEFAULT_GIT_TAG="v1.0.2" \
+    DEFAULT_GIT_TAG="master" \
     CARGO_NET_GIT_FETCH_WITH_CLI=true \
     CMAKE_POLICY_VERSION_MINIMUM=3.5
 
 RUN --mount=target=/mnt/build-context \
     echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
-    #echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories && \
     apk --update upgrade && \
     apk add --no-cache $RUN_DEPS $BUILD_DEPS && \
-    apk add --no-cache --repository=http://dl-cdn.alpinelinux.org/alpine/v3.17/main cmake=3.17.5-r1 && \
+    #apk add --no-cache --repository=http://dl-cdn.alpinelinux.org/alpine/v3.17/main cmake=3.17.5-r1 && \
     mkdir -p $BUILD_DIR ~/.config/pip/ && \
     printf "\n[global]\nbreak-system-packages = true" >> ~/.config/pip/pip.conf && \
     cd $BUILD_DIR && \
