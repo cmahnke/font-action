@@ -14,7 +14,9 @@ ENV BUILD_DEPS="g++ clang-dev make libc-dev util-linux-dev libxml2-dev binutils 
     WOFF2_GIT_URL="https://github.com/google/woff2.git" \
     DEFAULT_GIT_TAG="master" \
     CARGO_NET_GIT_FETCH_WITH_CLI=true \
-    CMAKE_POLICY_VERSION_MINIMUM=3.5
+    CMAKE_POLICY_VERSION_MINIMUM=3.5 \
+    SETUPTOOLS_SCM_PRETEND_VERSION=0.5.1
+
 
 RUN --mount=target=/mnt/build-context \
     echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
